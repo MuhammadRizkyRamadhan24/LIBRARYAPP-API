@@ -6,9 +6,10 @@ const bookController = require('../controllers/bookController');
 const authMiddleware = require('../middlewares/auth');
 
 router.get('/', authMiddleware.levelUser, bookController.getAllBook);
-router.get('/search', authMiddleware.levelUser, bookController.getSeacrhBook)
+router.get('/search', authMiddleware.levelUser, bookController.getSeacrhBook);
+router.get('/page', authMiddleware.levelUser, bookController.paginationBook);
 router.post('/', authMiddleware.levelAdmin, uploadImage ,bookController.postBook);
-router.put('/:id', authMiddleware.levelAdmin, uploadImage ,bookController.patchBook);
+router.put('/:id', authMiddleware.levelAdmin, uploadImage ,bookController.putBook);
 router.delete('/:id', authMiddleware.levelAdmin, bookController.deleteBook);
 
 router.post('/borrow', authMiddleware.levelUser, bookController.borrowBook);

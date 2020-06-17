@@ -46,6 +46,18 @@ module.exports = {
         });
     },
 
+    getPaginationBookModel : function(order, sort, limit, page){
+        return new Promise((resolve, reject) =>{
+            const offset = (limit * page) - limit;
+            connection.query(`SELECT * FROM books ORDER BY ${order} ${sort} LIMIT ? OFFSET ?`, [limit, offset], function(error, result){
+                if (error){
+                    reject(error);
+                }
+                resolve(result);
+            });
+        });
+    },
+
     postBookModel : function(setData, bookImage){
         return new Promise((resolve, reject) =>{
             connection.query('INSERT INTO books SET ?', setData, function(error, result){

@@ -34,7 +34,7 @@
 - [x] Password hashing
 
 ## Examples
-[How to use]()
+[How to use](https://www.getpostman.com/collections/87e72bdb02d5c6c8d466)
 
 ## Built with
 - [Node.js](http://nodejs.org/) - JavaScript runtime environment

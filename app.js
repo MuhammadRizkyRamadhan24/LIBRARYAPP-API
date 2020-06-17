@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const xssFilter = require('x-xss-protection');
-const whitelist = ['http://localhost:3000'];
 
 const connection = require('./src/helpers/mysql');
 const corsHelper =  require('./src/helpers/cors');

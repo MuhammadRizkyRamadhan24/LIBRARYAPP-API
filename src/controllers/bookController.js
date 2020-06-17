@@ -36,6 +36,24 @@ module.exports = {
         }
     },
 
+    paginationBook : async function(req, res){
+        const limit = parseInt(req.query.limit) || 8;
+        const page = parseInt(req.query.page) || 1;
+        const sort = req.query.sort || 'asc';
+        const order = req.query.order || 'added_at';
+        try{
+            const result = await bookModel.getPaginationBookModel(order, sort, limit, page)
+            if(result[0]){
+                return helper.response(res, 'success', result, 200);
+            } else {
+                return helper.response(res, 'fail', 'Not find data', 404);
+            }
+        } catch(error){
+            console.log(error);
+                return helper.response(res, 'fail', 'Internal Server Error', 500);
+        }
+    },
+
     postBook: async function(req, res){
         const setData = req.body;
         setData.bookImage = req.file.filename;
@@ -48,7 +66,7 @@ module.exports = {
         }
     },
 
-    patchBook: async function(req, res){
+    putBook: async function(req, res){
         try{
             const body = req.body;
             const id = req.params.id;
