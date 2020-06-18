@@ -97,7 +97,7 @@ module.exports = {
 
     updateBorrowBookModel : function(setTitle){
         return new Promise((resolve, reject) =>{
-            connection.query(`UPDATE books SET status = 'dipinjam' WHERE title=?`, setTitle, function(error, result){
+            connection.query(`UPDATE books SET status = 'Dipinjam' WHERE title=?`, setTitle, function(error, result){
                 if (error){
                     reject(error);
                 }
@@ -108,7 +108,7 @@ module.exports = {
 
     updateReturnBookModel : function(setData){
         return new Promise((resolve, reject) =>{
-            connection.query(`UPDATE books SET status = 'ada' WHERE title=?`, setData, function(error, result){
+            connection.query(`UPDATE books SET status = 'Ada' WHERE title=?`, setData, function(error, result){
                 if (error){
                     reject(error);
                 }
@@ -119,7 +119,7 @@ module.exports = {
 
     borrowBookModel : function(setData){
         return new Promise((resolve, reject) => {
-            connection.query(`INSERT INTO borrows SET ? , status = 'dipinjam'`, setData, function(error, result){
+            connection.query(`INSERT INTO borrows SET ? , status = 'Dipinjam'`, setData, function(error, result){
                 if (error){
                     reject(error);
                 }
@@ -134,7 +134,7 @@ module.exports = {
 
     returnBookModel : function(id){
         return new Promise((resolve, reject) => {
-            connection.query(`UPDATE borrows SET status = 'ada' WHERE id_borrow=?`, id, function(error, result){
+            connection.query(`UPDATE borrows SET status = 'Dikembalikan' WHERE id_borrow=?`, id, function(error, result){
                 if (error){
                     reject(error)
                 } 

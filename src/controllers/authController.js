@@ -33,7 +33,7 @@ module.exports = {
                 const tokenData = {
                     ...result[0]
                 };
-                const token = jwt.sign(tokenData, config.jwtSecretKey, {expiresIn: '30s'});
+                const token = jwt.sign(tokenData, config.jwtSecretKey, {expiresIn: '1h'});
                 const refreshToken = jwt.sign(tokenData, config.jwtSecretKey, {expiresIn: '1d'});
                 result[0].token = token;
                 result[0].refreshToken = refreshToken;
@@ -48,25 +48,10 @@ module.exports = {
         }
     },
 
-    // refreshToken: async function(req, res){
-    //     try{
-    //         const data = req.body;
-    //         const tokenRefresh = data.tokenRefresh;
-    //         const decoded = jwt.verify(tokenRefresh, config.jwtSecretKey);
-    //         delete decoded.iat;
-    //         delete decoded.exp;
-    //         const token = jwt.sign(decoded, config.jwtSecretKey, {expiresIn:'60s'});
-    //         return helper.response(res, 'success', { token: token }, 200)
-    //     } catch(error) {
-    //         console.log(error);
-    //         return helper.response(res, "fail", "Internal Server Error", 500);
-    //     }
-    // },
-
     refreshToken: async function(req, res){
         try{
             const result = req.decodedRefreshToken;
-            const token = jwt.sign(result, config.jwtSecretKey, {expiresIn: '30s'});
+            const token = jwt.sign(result, config.jwtSecretKey, {expiresIn: '1h'});
             const refreshToken = jwt.sign(result, config.jwtSecretKey, {expiresIn: '1d'});
             return helper.response(res, 'success', { token: token, refreshToken : refreshToken }, 200)
         } catch (error) {
