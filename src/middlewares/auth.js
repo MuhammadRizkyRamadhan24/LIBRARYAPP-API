@@ -4,14 +4,14 @@ const helper = require('../helpers/index');
 
 module.exports = {
     verifyJwtToken : function(req, res, next){
-        const splitToken = req.headers.authorization.split(' ');
-        let token = '';
-        if(splitToken.length > 1){
-            token = splitToken.pop();
-        }else{
-            token = req.headers.authorization;
-        }
         try{
+            const splitToken = req.headers.authorization.split(' ');
+            let token = '';
+            if(splitToken.length > 1){
+                token = splitToken.pop();
+            }else{
+                token = req.headers.authorization;
+            }
             const decoded = jwt.verify(token, config.jwtSecretKey);    
             req.decodedToken = decoded;
             next();
@@ -24,14 +24,14 @@ module.exports = {
     },
 
     verifyJwtRefreshToken : function(req, res, next){
-        const splitRefreshToken = req.headers.authorization.split(' ');
-        let refreshToken = '';
-        if(splitRefreshToken.length > 1){
-            refreshToken = splitToken.pop();
-        }else{
-            refreshToken = req.headers.authorization;
-        }
         try{
+            const splitRefreshToken = req.headers.authorization.split(' ');
+            let refreshToken = '';
+            if(splitRefreshToken.length > 1){
+                refreshToken = splitToken.pop();
+            }else{
+                refreshToken = req.headers.authorization;
+            }
             const decoded = jwt.verify(refreshToken, config.jwtSecretKey);
             delete decoded.iat;
             delete decoded.exp;

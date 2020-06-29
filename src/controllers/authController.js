@@ -33,7 +33,7 @@ module.exports = {
                 const tokenData = {
                     ...result[0]
                 };
-                const token = jwt.sign(tokenData, config.jwtSecretKey, {expiresIn: '1h'});
+                const token = jwt.sign(tokenData, config.jwtSecretKey, {expiresIn: '1d'});
                 const refreshToken = jwt.sign(tokenData, config.jwtSecretKey, {expiresIn: '1d'});
                 result[0].token = token;
                 result[0].refreshToken = refreshToken;
@@ -51,7 +51,7 @@ module.exports = {
     refreshToken: async function(req, res){
         try{
             const result = req.decodedRefreshToken;
-            const token = jwt.sign(result, config.jwtSecretKey, {expiresIn: '1h'});
+            const token = jwt.sign(result, config.jwtSecretKey, {expiresIn: '1d'});
             const refreshToken = jwt.sign(result, config.jwtSecretKey, {expiresIn: '1d'});
             return helper.response(res, 'success', { token: token, refreshToken : refreshToken }, 200)
         } catch (error) {
