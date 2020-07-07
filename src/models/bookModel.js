@@ -22,22 +22,12 @@ module.exports = {
             });
         });
     },
+   
 
-    getDataByTitle: function(setTitle){
-        return new Promise((resolve, reject) => {
-            connection.query('SELECT * FROM books WHERE title=?', setTitle, function(error, result){
-                if (error) {
-                    reject(error);
-                }
-                resolve(result);
-            });
-        });
-    },    
-
-    getSearchBookModel : function(title, author, genre, order, sort, limit, page){
+    getSearchBookModel : function(search, order, sort, limit, page){
         return new Promise((resolve, reject) =>{
             const offset = (limit * page) - limit;
-            connection.query(`SELECT * FROM books INNER JOIN genres ON books.id_genre=genres.id_genre INNER JOIN authors ON books.id_author=authors.id_author WHERE title LIKE ? OR author LIKE ? OR genre LIKE ? ORDER BY ${order} ${sort} LIMIT ? OFFSET ?`, [title, author, genre, limit, offset], function(error, result){
+            connection.query(`SELECT * FROM books INNER JOIN genres ON books.id_genre=genres.id_genre INNER JOIN authors ON books.id_author=authors.id_author WHERE title LIKE ? OR author LIKE ? OR genre LIKE ? ORDER BY ${order} ${sort} LIMIT ? OFFSET ?`, [search, search, search, limit, offset], function(error, result){
                 if (error){
                     reject(error);
                 }
@@ -95,20 +85,20 @@ module.exports = {
         })
     },
 
-    updateBorrowBookModel : function(setTitle){
-        return new Promise((resolve, reject) =>{
-            connection.query(`UPDATE books SET status = 'Dipinjam' WHERE title=?`, setTitle, function(error, result){
-                if (error){
+    getDataByTitle: function(title){
+        return new Promise((resolve, reject) => {
+            connection.query('SELECT status FROM books WHERE title=?', title, function(error, result){
+                if (error) {
                     reject(error);
                 }
                 resolve(result);
             });
         });
-    },
+    }, 
 
-    updateReturnBookModel : function(setData){
+    updateBorrowBookModel : function(title){
         return new Promise((resolve, reject) =>{
-            connection.query(`UPDATE books SET status = 'Ada' WHERE title=?`, setData, function(error, result){
+            connection.query(`UPDATE books SET status = 'Dipinjam' WHERE title=?`, title, function(error, result){
                 if (error){
                     reject(error);
                 }
@@ -132,14 +122,25 @@ module.exports = {
         });
     },
 
-    returnBookModel : function(id){
+    returnBookModel : function(username, title){
         return new Promise((resolve, reject) => {
-            connection.query(`UPDATE borrows SET status = 'Dikembalikan' WHERE id_borrow=?`, id, function(error, result){
+            connection.query(`UPDATE borrows SET status = 'Dikembalikan' WHERE username=? AND title=? AND status='Dipinjam'`, [username, title], function(error, result){
                 if (error){
                     reject(error)
                 } 
                 resolve(result);
             });
         })
+    },
+
+    updateReturnBookModel : function(title){
+        return new Promise((resolve, reject) =>{
+            connection.query(`UPDATE books SET status = 'Ada' WHERE title=?`, title, function(error, result){
+                if (error){
+                    reject(error);
+                }
+                resolve(result);
+            });
+        });
     },
 }

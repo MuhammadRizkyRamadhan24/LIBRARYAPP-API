@@ -5,12 +5,13 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const xssFilter = require('x-xss-protection');
+const path = require('path');
 
 const connection = require('./src/helpers/mysql');
 const corsHelper =  require('./src/helpers/cors');
 const routes = require('./src/routes/index');
-
 const app = express();
+
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -28,6 +29,7 @@ app.options('*', cors(corsHelper.corsOptions));
 app.use(xssFilter());
 
 //Routes
+app.use('/static', express.static(path.join(__dirname, 'src/public')));
 app.use('/', routes);
 
 //port

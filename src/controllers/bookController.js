@@ -15,16 +15,28 @@ module.exports = {
         }
     },
 
+    getBookById: async function(req, res){
+        try{
+            const id = req.params.id;
+            const result = await bookModel.getDataById(id);
+            return helper.response(res, 'success', result, 200);
+        } catch (error){
+            console.log(error);
+            return helper.response(res, 'fail', 'Internal Server Error', 500);
+        }
+    },
+
     getSeacrhBook: async function(req, res){
         const limit = parseInt(req.query.limit) || 8;
         const page = parseInt(req.query.page) || 1;
         const sort = req.query.sort || 'asc';
         const order = req.query.order || 'added_at';
-        const title = `%${req.query.title}%` || '';
-        const author = `%${req.query.author}%` || '';
-        const genre = `%${req.query.genre}%` || '';
+        const search = `%${req.query.search}%` || '';
+        // const title = `%${req.query.title}%` || '';
+        // const author = `%${req.query.author}%` || '';
+        // const genre = `%${req.query.genre}%` || '';
         try{
-            const result = await bookModel.getSearchBookModel(title, author, genre, order, sort, limit, page)
+            const result = await bookModel.getSearchBookModel(search, order, sort, limit, page)
             if(result[0]){
                 return helper.response(res, 'success', result, 200);
             } else {
@@ -57,6 +69,7 @@ module.exports = {
     postBook: async function(req, res){
         const setData = req.body;
         setData.bookImage = req.file.filename;
+        console.log(setData);
         try {
             const result = await bookModel.postBookModel(setData);
             return helper.response(res, 'success', result, 200);
@@ -114,11 +127,12 @@ module.exports = {
 
     borrowBook: async function(req, res){
         const setData = req.body;
-        const setTitle = setData.title;
+        const title = setData.title;
+        console.log(setData);
         try {
-            const oldData = await bookModel.getDataByTitle(setTitle);
+            const oldData = await bookModel.getDataByTitle(title);
             if (oldData[0].status == 'ada' || oldData[0].status == 'Ada'){
-                const updateStatus = await bookModel.updateBorrowBookModel(setTitle);
+                const updateStatus = await bookModel.updateBorrowBookModel(title);
                 const result = await bookModel.borrowBookModel(setData);
                 return helper.response(res, 'success', result, 200);
             } else {
@@ -131,11 +145,11 @@ module.exports = {
     },
 
     returnBook: async function(req, res){
-        const id = req.params.id;
-        const setData = req.body.title;
+        const username = req.body.username;
+        const title = req.body.title;
         try{
-            const updateStatus = await bookModel.updateReturnBookModel(setData);
-            const result = await bookModel.returnBookModel(id);
+            const updateStatus = await bookModel.updateReturnBookModel(title);
+            const result = await bookModel.returnBookModel(username, title);
             return helper.response(res, 'success', 'Return The Book Success!', 200);
         } catch(error) {
             console.log(error);
