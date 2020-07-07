@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jun 2020 pada 15.07
+-- Waktu pembuatan: 07 Jul 2020 pada 15.25
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -68,13 +68,12 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `title`, `description`, `bookImage`, `id_author`, `id_genre`, `status`, `added_at`, `updatet_at`) VALUES
-(1, 'MetroPop: Inisial K', 'Bagi Raka, inisial K adalah segala yang dia cari untuk membalaskan dendam. Menghancurkan target hingga ke akar-akarnya. Bagi Arimbi, menjadi bagian keluarga Kertaraja yang terpandang adalah priviledge sekaligus kutukan. Seluruh harta dan kekayaan yang dia', 'image-1592396928619.jpg', 1, 1, 'Ada', '2020-06-17 12:28:48', '2020-06-17 12:28:48'),
-(2, 'Petualangan Sherlock Holmes', 'Melalui para klien yang datang minta pertolongan kepada konsultan detektif pertama di dunia ini, pembaca diajak mengunjungi kamar sewaan di Baker Street No. 221B yang termasyhur itu, di tempat Holmes yang eksentrik dan dr. Watson yang istimewa pernah ting', 'image-1592397002871.jpg', 2, 1, 'Ada', '2020-06-17 12:30:02', '2020-06-17 12:30:02'),
-(3, 'Momentum: 18 Kunci Utama Penggerak Bisnis', 'Saat ini kita menghadapi situasi yang semakin serba-tidak pasti. VUCA (volatility, uncertainty, complexity, dan ambiguity) selalu ada di setiap aktivitas sehari-hari yang kita jalankan. Guna mengatasinya, kita harus memiliki pola pikir dan tindakan DAMO (', 'image-1592397076049.jpg', 3, 2, 'Ada', '2020-06-17 12:31:16', '2020-06-17 12:31:16'),
-(4, 'Katarsis', 'ka·tar·sis: n (Psi) cara pengobatan orang yg berpenyakit saraf dng membiarkannya menuangkan segala isi hatinya dng bebas; (Sas) kelegaan emosional setelah mengalami ketegangan dan pertikaian batin akibat suatu lakuan dramatis.\n\nSeluruh keluarganya tewas d', 'image-1592397152028.jpg', 4, 1, 'Ada', '2020-06-17 12:32:32', '2020-06-17 12:32:32'),
-(5, 'Mata di Tanah Melus', 'Pesawat kecil kami mendarat di negeri antah-berantah. Saat pesawat itu mulai merendah, aku bisa melihat hamparan hijau yang tak terlalu lebat, juga tak benar-benar hijau. Hijau yang kering dan lesu, namun justru terlihat ramah dan tak menakutkan untukku.\n', 'image-1592397209348.jpg', 6, 1, 'Ada', '2020-06-17 12:33:29', '2020-06-17 12:33:29'),
+(1, 'MetroPop: Inisial K', 'Bagi Raka, inisial K adalah segala yang dia cari untuk membalaskan dendam. Menghancurkan target hingga ke akar-akarnya. Bagi Arimbi, menjadi bagian keluarga Kertaraja yang terpandang adalah priviledge sekaligus kutukan. Seluruh harta dan kekayaan yang dia', 'image-1592396928619.jpg', 1, 1, 'Ada', '2020-06-17 12:28:48', '2020-07-01 08:24:38'),
+(3, 'Momentum: 18 Kunci Utama Penggerak Bisnis', 'Saat ini kita menghadapi situasi yang semakin serba-tidak pasti. VUCA (volatility, uncertainty, complexity, dan ambiguity) selalu ada di setiap aktivitas sehari-hari yang kita jalankan. Guna mengatasinya, kita harus memiliki pola pikir dan tindakan DAMO (', 'image-1592397076049.jpg', 3, 2, 'Ada', '2020-06-17 12:31:16', '2020-07-05 13:09:56'),
+(4, 'Coba', 'coba', 'image-1593686580733.jpg', 4, 1, 'Ada', '2020-06-17 12:32:32', '2020-07-02 10:43:49'),
+(5, 'Mata di Tanah Melus', 'Pesawat kecil kami mendarat di negeri antah-berantah. Saat pesawat itu mulai merendah, aku bisa melihat hamparan hijau yang tak terlalu lebat, juga tak benar-benar hijau. Hijau yang kering dan lesu, namun justru terlihat ramah dan tak menakutkan untukku.', 'image-1593685563709.jpg', 6, 1, 'Ada', '2020-06-17 12:33:29', '2020-07-02 10:26:03'),
 (6, 'Filosofi Teras', 'Lebih dari 2.000 tahun lalu, sebuah mazhab filsafat menemukan akar masalah dan juga solusi dari banyak emosi negatif. Stoisisme, atau Filosofi Teras, adalah filsafat Yunani-Romawi kuno yang bisa membantu kita mengatasi emosi negatif dan menghasilkan menta', 'image-1592397255706.jpg', 5, 3, 'Ada', '2020-06-17 12:34:15', '2020-06-17 12:34:15'),
-(7, 'Cinta (Tidak Harus) Mati', 'Apa persamaan antara bendera Malaysia, anjing yang melahirkan\n\nApa persamaan antara bendera Malaysia, anjing yang melahirkan kucing, Long Distance Relationship, dan petugas menara Air Traffic Control?\n\nTidak ada yang luput dari penulis buku ini.\n\nCinta (t', 'image-1592397698232.jpg', 5, 3, 'ada', '2020-06-17 12:41:38', '2020-06-17 12:46:03');
+(7, 'Cinta (Tidak Harus) Mati', 'Apa persamaan antara bendera Malaysia, anjing yang melahirkan\n\nApa persamaan antara bendera Malaysia, anjing yang melahirkan kucing, Long Distance Relationship, dan petugas menara Air Traffic Control?\n\nTidak ada yang luput dari penulis buku ini.\n\nCinta (t', 'image-1592397698232.jpg', 5, 3, 'Ada', '2020-06-17 12:41:38', '2020-07-01 14:56:37');
 
 -- --------------------------------------------------------
 
@@ -94,7 +93,8 @@ CREATE TABLE `borrows` (
 --
 
 INSERT INTO `borrows` (`id_borrow`, `username`, `title`, `status`) VALUES
-(1, 'zzzzidannnn', 'Cinta (Tidak Harus) Mati', 'ada');
+(2, 'admin', 'Coba', 'Dikembalikan'),
+(3, 'admin', 'Momentum: 18 Kunci Utama Penggerak Bisnis', 'Dikembalikan');
 
 -- --------------------------------------------------------
 
@@ -136,9 +136,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `created_at`, `updatet_at`) VALUES
-(1, 'zidan13', '$2b$10$NaPXmxPHtYWWWd3Ah6JPt.qH4n3IZX1flmpKvsGkanBHv1NNLooYq', 0, '2020-06-13 06:58:44', '2020-06-13 06:58:44'),
-(2, 'zzzzidannnn', '$2b$10$5EsX8zSh3JDr1gQ5EEQ1WeQCuUCg.NM0sOmBONT6H/CZPMWT84gdy', 1, '2020-06-13 07:04:24', '2020-06-13 07:04:24'),
-(3, 'Muhammad Rizky Ramadhan', '$2b$10$OZJDognQgfpJXc8BPIPVZ.P7fh9c2MAi7KPBiFftv20ReSYdKXexa', 1, '2020-06-14 06:52:59', '2020-06-14 06:52:59');
+(1, 'admin', '$2b$10$pkFOWbsUzJV6apedAxE99uLEgqAPYF02Oq94/Zw7irNwMS.rNDVEa', 1, '2020-07-02 10:23:18', '2020-07-02 10:23:18'),
+(2, 'admin', '$2b$10$WVNbzq3QAU0bWjUA2Ah.1efkBClMYMAi9BnCe2aet7W6isriFi6f6', 1, '2020-07-02 10:40:56', '2020-07-02 10:40:56'),
+(4, 'zidan13', '$2b$10$PslXNf/b4fK.ycesT9pCPedW4/YLlE5TT0u4fj8S0HIyU5MBBI1YS', 1, '2020-07-07 02:43:55', '2020-07-07 02:43:55'),
+(5, '3103117328', '$2b$10$yCRcYt1tqTu60BS8xmcRw..V/HrlLo.sj5/5T2SEwUXQL1xTC2Cxi', 0, '2020-07-07 03:02:18', '2020-07-07 03:02:18');
 
 --
 -- Indexes for dumped tables
@@ -194,7 +195,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT untuk tabel `borrows`
 --
 ALTER TABLE `borrows`
-  MODIFY `id_borrow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_borrow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `genres`
@@ -206,7 +207,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
