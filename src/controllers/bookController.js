@@ -155,5 +155,16 @@ module.exports = {
             console.log(error);
             return helper.response(res, 'fail', 'Internal Server Error', 500);
         }
-    }
+    },
+
+    historyBorrows: async function(req, res){
+        try{
+            const username = req.params.username;
+            const result = await bookModel.getDataHistory(username);
+            return helper.response(res, 'success', result, 200);
+        } catch (error){
+            console.log(error);
+            return helper.response(res, 'fail', 'Internal Server Error', 500);
+        }
+    },
 }

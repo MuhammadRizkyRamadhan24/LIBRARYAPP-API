@@ -1,4 +1,5 @@
 const connection =  require('../helpers/mysql');
+const { resolve } = require('path');
 
 module.exports = {
     getAllBookModel : function(){
@@ -143,4 +144,15 @@ module.exports = {
             });
         });
     },
+
+    getDataHistory: function(username){
+        return new Promise((resolve, reject) => {
+            connection.query('SELECT *,(SELECT bookImage FROM books WHERE books.title = borrows.title) AS bookImage FROM borrows WHERE username=?', username, function(error, result){
+                if (error) {
+                    reject(error);
+                }
+                resolve(result);
+            });
+        });
+    }, 
 }
